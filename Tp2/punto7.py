@@ -37,5 +37,7 @@ def dfs(grafo, actual, destino, visitados=None):
     
     return False
 
+
+
 print(dfs(grafo, "Bucarest", "Oradea"))   # True
 print(dfs(grafo, "Bucarest", "Mehadia"))  # True
