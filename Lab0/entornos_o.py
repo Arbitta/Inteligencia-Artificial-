@@ -110,16 +110,16 @@ def simulador(entorno, agente, pasos=10, verbose=True):
         print('Paso'.center(10) +
               'Estado'.center(40) +
               u'Acción'.center(25) +
-              u'Desempeño'.center(30))
+              u'Desempeño'.center(10))
 
-        print('_' * (10 + 40 + 25 + 30))
+        print('_' * (10 + 40 + 25 + 10))
 
         for i in range(pasos):
             print(str(i).center(10) +
                   str(historial_estados[i]).center(40) +
                   str(historial_acciones[i]).center(25) +
-                  str(historial_desempeño[i]).rjust(30))
+                  str(historial_desempeño[i]).rjust(10))
 
-        print(f'_' * (10 + 40 + 25 + 30) + '\n\n')
+        print(f'_' * (10 + 40 + 25 + 10) + '\n\n')
 
     return historial_estados, historial_acciones, historial_desempeño
