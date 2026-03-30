@@ -10,7 +10,7 @@ class SeisCuartos(entornos_o.Entorno):
         "D": 4, "E": 5, "F": 6       
     }
     
-    def __init__(self, x0=["A","sucio","sucio","sucio","sucio","sucio","sucio"]):
+    def __init__(self, x0=["D","sucio","sucio","sucio","sucio","sucio","sucio"]):
         self.x = x0[:]
         self.desempeño =0
     

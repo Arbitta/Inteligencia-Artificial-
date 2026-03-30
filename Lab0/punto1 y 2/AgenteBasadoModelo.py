@@ -21,15 +21,35 @@ class AgenteBasadoModelo (entornos_o.Agente):
         if situacion == "sucio":
             return "limpiar"
         
-        if robot == "A" and self.modelo[SeisCuartos.INDICE["D"]] == "sucio":
-            return "subir"
-        if robot == "C" and self.modelo[SeisCuartos.INDICE["F"]] == "sucio":
-            return "subir"
+        match robot:
+            case "A":
+                if self.modelo[SeisCuartos.INDICE["B"]] == "sucio":
+                    return "ir_Derecha"
+                return "subir"
+            
+            case "B":
+                if self.modelo[SeisCuartos.INDICE["A"]] == "sucio":
+                    return "ir_Izquierda"
+                if self.modelo[SeisCuartos.INDICE["C"]] == "sucio":
+                    return "ir_Derecha"
 
-        if robot == "E" and self.modelo[SeisCuartos.INDICE["B"]] == "sucio":
-            return "bajar"
-
-        if robot not in ("C", "F"):
-            return "ir_Derecha"
-
+            case "C":
+                if self.modelo[SeisCuartos.INDICE["B"]] == "sucio":
+                    return "ir_Izquierda"
+                return "subir"
+            
+            case "D":
+                return "ir_Derecha"
+            
+            case "E":
+                if self.modelo[SeisCuartos.INDICE["D"]] == "sucio":
+                    return "ir_Izquierda"
+                
+                if self.modelo[SeisCuartos.INDICE["F"]] == "sucio":
+                    return "ir_Derecha"
+                return "bajar"
+            
+            case "F":
+                return "ir_Izquierda"
+            
         return "nada"
