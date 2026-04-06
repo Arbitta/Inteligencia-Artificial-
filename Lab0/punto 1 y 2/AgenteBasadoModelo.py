@@ -25,31 +25,52 @@ class AgenteBasadoModelo (entornos_o.Agente):
             case "A":
                 if self.modelo[SeisCuartos.INDICE["B"]] == "sucio":
                     return "ir_Derecha"
-                return "subir"
-            
+                elif self.modelo[SeisCuartos.INDICE["C"]] == "sucio":
+                    return "ir_Derecha"
+                else:
+                    return "subir"             
             case "B":
                 if self.modelo[SeisCuartos.INDICE["A"]] == "sucio":
                     return "ir_Izquierda"
-                if self.modelo[SeisCuartos.INDICE["C"]] == "sucio":
+                elif self.modelo[SeisCuartos.INDICE["C"]] == "sucio":
                     return "ir_Derecha"
+                else:
+                    lado_izq = sum(1 for c in ("D", "E") if self.modelo[SeisCuartos.INDICE[c]] == "sucio")
+                    lado_der = sum(1 for c in ("E", "F") if self.modelo[SeisCuartos.INDICE[c]] == "sucio")
+                    if lado_izq >= lado_der:
+                        return "ir_Izquierda"  
+                    else:
+                        return "ir_Derecha"   #para ver si lo laterales estaban sucios 
 
             case "C":
                 if self.modelo[SeisCuartos.INDICE["B"]] == "sucio":
                     return "ir_Izquierda"
-                return "subir"
+                elif self.modelo[SeisCuartos.INDICE["A"]] == "sucio":
+                    return "ir_Izquierda"
+                else:
+                    return "subir"
             
             case "D":
-                return "ir_Derecha"
+                if self.modelo[SeisCuartos.INDICE["E"]] == "sucio":
+                    return "ir_Derecha"
+                elif self.modelo[SeisCuartos.INDICE["F"]] == "sucio":
+                    return "ir_Derecha"
+                else:
+                    return "ir_Derecha"
             
             case "E":
                 if self.modelo[SeisCuartos.INDICE["D"]] == "sucio":
                     return "ir_Izquierda"
-                
                 if self.modelo[SeisCuartos.INDICE["F"]] == "sucio":
                     return "ir_Derecha"
                 return "bajar"
             
             case "F":
-                return "ir_Izquierda"
+                if self.modelo[SeisCuartos.INDICE["E"]] == "sucio":
+                    return "ir_Izquierda"
+                elif self.modelo[SeisCuartos.INDICE["D"]] == "sucio":
+                    return "ir_Izquierda"
+                else:
+                    return "ir_Izquierda"
             
         return "nada"

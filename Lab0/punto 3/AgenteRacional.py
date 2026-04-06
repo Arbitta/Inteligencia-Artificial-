@@ -7,14 +7,10 @@ from dosCuartoCiego import DosCuartosCiego
 class AgenteRacional(entornos_o.Agente):
     
     def __init__(self):
-        self.modelo = {"pos": "A",
-                    "A": "sucio",
-                    "B": "sucio"}  # ← diccionario
-        self.pos = None
+        self.modelo = {"A": "sucio", "B": "sucio"}  # ← diccionario
     
     def programa(self, percepcion):
         pos = percepcion
-        self.pos = pos
         
         if self.modelo[pos] == "sucio":
             self.modelo[pos] = "limpio"
@@ -23,7 +19,4 @@ class AgenteRacional(entornos_o.Agente):
         if self.modelo["A"] == "limpio" and self.modelo["B"] == "limpio":
             return "nada"
         
-        if pos == "A":
-            return "ir_B"
-        else:
-            return "ir_A"
+        return "ir_B" if pos == "A" else "ir_A"
