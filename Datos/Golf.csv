@@ -1,0 +1,15 @@
+Ambiente,Temperatura,Humedad,Viento,Juega
+soleado,alta,alta,no,no
+soleado,alta,alta,si,no
+nublado,alta,alta,no,si
+lluvioso,media,alta,no,si
+lluvioso,baja,normal,no,si
+lluvioso,baja,normal,si,no
+nublado,baja,normal,si,si
+soleado,media,alta,no,no
+soleado,baja,normal,no,si
+lluvioso,media,normal,no,si
+soleado,media,normal,si,si
+nublado,media,alta,si,si
+nublado,alta,normal,no,si
+lluvioso,media,alta,si,no
